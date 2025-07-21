@@ -129,6 +129,8 @@ export async function setEntry(content) {
 
     const response = await fetch(`${backendURL}/entries`, options);
 
+    window.location.href = "/entries/entries.html"
+
     if (!response.ok) {
         console.error("Failed to set entry", response.statusText);
     }
