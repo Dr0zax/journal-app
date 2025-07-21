@@ -166,6 +166,7 @@ export async function login(uname, passwd) {
     }
 
     setLocalStorage('token', result.token);
+    window.location.href = '/index.html';
 }
 
 export async function register(uname, passwd) {    
