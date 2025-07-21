@@ -86,7 +86,7 @@ const buttons = document.querySelectorAll(".editor-function")
 
 buttons.forEach(button => button.addEventListener("click", () => {
     if (button.id == "createEntry") {
-        let editorContent = document.querySelector("#journal").innerHTML;
+        let editorContent = document.querySelector("#editor").innerHTML;
         setEntry(editorContent);
     }
     else {

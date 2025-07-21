@@ -1,7 +1,7 @@
 import { quoteTemp, entryTemp } from "./templates/templates.mjs";
 
 const baseURL = "https://thequoteshub.com/api/random-quote";
-const backendURL = import.meta.env.BACKEND_SERVER
+const backendURL = import.meta.env.VITE_BACKEND_SERVER;
 
 
 export function getLocalStorage(key) {
@@ -65,7 +65,6 @@ export async function displayPrompt() {
 export async function getEntries() {
     const token = getLocalStorage("token");
 
-
     const options = {
         method: "GET",
         headers: {
@@ -107,6 +106,9 @@ export async function displayEntriesOnDash() {
     const entryData = await getEntries();
     let entries = entryData;
     
+    console.log(entries);
+    
+
     if (entryData.length > 3) {
         entries = entryData.slice(0, 3)
     }
@@ -150,6 +152,7 @@ export function getParam(param) {
 }
 
 export async function login(uname, passwd) {
+
     const response = await fetch(`${backendURL}/auth/login`, {
         method: "POST",
         headers: { 'Content-Type': 'application/json' },
@@ -165,9 +168,9 @@ export async function login(uname, passwd) {
     setLocalStorage('token', result.token);
 }
 
-export async function regitser(uname, passwd) {
-    const response = await fetch(`${backendURL}/auth/regitser`, {
-        method: "POST",
+export async function register(uname, passwd) {    
+    const response = await fetch(`${backendURL}/auth/register`, {
+        method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ username: uname, password: passwd})
     })

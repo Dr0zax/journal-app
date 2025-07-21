@@ -1,4 +1,4 @@
-import { regitser, setHeaderFooter } from "./utils.mjs";
+import { register, setHeaderFooter } from "./utils.mjs";
 import { setupSettingsMenu } from "./settings-menu.mjs";
 
 const regitserForm = document.querySelector("#register");
@@ -11,11 +11,12 @@ regitserForm.addEventListener('submit', async (e) => {
     const passwordRepeat = document.querySelector("#password-repeat").value;
 
     if (password == passwordRepeat) {
-        // regitser(username, password)
+        register(username, password)
         regitserForm.reset();
         window.location.href = "/login.html";
     }
 })
+
 
 setHeaderFooter()
 setupSettingsMenu();
