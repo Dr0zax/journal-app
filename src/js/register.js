@@ -13,7 +13,6 @@ regitserForm.addEventListener('submit', async (e) => {
     if (password == passwordRepeat) {
         register(username, password)
         regitserForm.reset();
-        window.location.href = "/login.html";
     }
 })
 

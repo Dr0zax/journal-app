@@ -181,4 +181,6 @@ export async function register(uname, passwd) {
     if (!response.ok) {
         console.error("Could not register", response.statusText);
     }
+
+    window.location.href = "/login.html";
 }
