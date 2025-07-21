@@ -1,42 +1,42 @@
 [
   {
-    "prompt": "What are three things you're grateful for today?",
+    "text": "What are three things you're grateful for today?",
     "category": "Gratitude"
   },
   {
-    "prompt": "Describe a moment recently when you felt truly at peace.",
+    "text": "Describe a moment recently when you felt truly at peace.",
     "category": "Mindfulness"
   },
   {
-    "prompt": "What is a challenge you're currently facing, and how are you handling it?",
+    "text": "What is a challenge you're currently facing, and how are you handling it?",
     "category": "Self-Reflection"
   },
   {
-    "prompt": "Write a letter to your younger self.",
+    "text": "Write a letter to your younger self.",
     "category": "Personal Growth"
   },
   {
-    "prompt": "What are your top five personal values and why?",
+    "text": "What are your top five personal values and why?",
     "category": "Values"
   },
   {
-    "prompt": "Describe your perfect day from start to finish.",
+    "text": "Describe your perfect day from start to finish.",
     "category": "Imagination"
   },
   {
-    "prompt": "Who in your life has had the most positive influence on you, and how?",
+    "text": "Who in your life has had the most positive influence on you, and how?",
     "category": "Relationships"
   },
   {
-    "prompt": "What fear have you overcome in the past, and what did it teach you?",
+    "text": "What fear have you overcome in the past, and what did it teach you?",
     "category": "Courage"
   },
   {
-    "prompt": "Where do you see yourself in five years?",
+    "text": "Where do you see yourself in five years?",
     "category": "Goals"
   },
   {
-    "prompt": "What does success mean to you personally?",
+    "text": "What does success mean to you personally?",
     "category": "Philosophy"
   }
 ]

@@ -1,8 +1,7 @@
 import { quoteTemp, entryTemp } from "./templates/templates.mjs";
 
-const baseURL = "https://thequoteshub.com/api/random-quote";
+const quoteAPIBaseURL = "https://thequoteshub.com/api/random-quote";
 const backendURL = import.meta.env.VITE_BACKEND_SERVER;
-
 
 export function getLocalStorage(key) {
     return localStorage.getItem(key);
@@ -13,6 +12,13 @@ export function setLocalStorage(key, data) {
 }
 
 async function getQuote() {
+    const today = new Date().toISOString().slice(0, 10); // e.g., "2024-06-08"
+    const stored = JSON.parse(localStorage.getItem("dailyQuote") || "{}");
+
+    if (stored.date === today && stored.quote) {
+        return stored.quote;
+    }
+
     try {
         const options = {
             method: 'GET',
@@ -21,44 +27,71 @@ async function getQuote() {
             }
         };
 
-        let response = await fetch(`${baseURL}`, options);
+        let response = await fetch(`${quoteAPIBaseURL}`, options);
 
         if (!response.ok) {
-            throw new console.error(`Failed to fetch quote: ${response.status}`);
+            throw new Error(`Failed to fetch quote: ${response.status}`);
         }
 
         let data = await response.json();
 
+        // Store quote and date in localStorage
+        setLocalStorage("dailyQuote", JSON.stringify({ date: today, quote: data }));
+
         return data;
     } catch (e) {
         console.error("Error fetching quote:", e);
+        // Fallback: return stored quote if available
+        if (stored.quote) return stored.quote;
     }
 }
 
 export async function displayQuote() {
     const quoteEl = document.querySelector("#daily-quote");
-    const quoteElContent = quoteEl.querySelector('.module-content')
+    const quoteElContent = quoteEl.querySelector('.module-content');
     const quoteData = await getQuote();
 
     // If quoteData is a single object, not an array, wrap it in an array
     const quotes = Array.isArray(quoteData) ? quoteData : [quoteData];
-    const quoteHTML = quotes.map(quoteTemp).join(",");
+    const quoteHTML = quotes.map(quoteTemp).join("");
     quoteElContent.innerHTML = quoteHTML;
 }
 
 async function getPropmt() {
-    const response = await fetch("/json/prompts.json");
-    const prompts = await response.json();
-    const randomIndex = Math.floor(Math.random() * prompts.length);
-    return prompts[randomIndex];
+    const today = new Date().toISOString().slice(0, 10); // e.g., "2024-06-08"
+    const stored = JSON.parse(localStorage.getItem("dailyPrompt") || "{}");
+
+    if (stored.date === today && stored.prompt) {
+        return stored.prompt;
+    }
+
+    try {
+        let response = await fetch("/json/prompts.json");
+
+        if (!response.ok) {
+            throw new Error(`Failed to fetch quote: ${response.status}`);
+        }
+
+        let prompt = await response.json();
+        const randomIndex = Math.floor(Math.random() * prompt.length);
+
+        // Store quote and date in localStorage
+        setLocalStorage("dailyPrompt", JSON.stringify({ date: today, prompt: prompt[randomIndex] }));
+
+        return prompt[randomIndex];
+    } catch (e) {
+        console.error("Error fetching prompt:", e);
+        // Fallback: return stored quote if available
+        if (stored.prompt) return stored.prompt;
+    }
 }
 
 export async function displayPrompt() {
     const promptEl = document.querySelector("#daily-prompt");
     const promptElContent = promptEl.querySelector(".module-content");
-    const promptData = await getPropmt();
+    const prompt = await getPropmt();
 
-    const promptHTML = `<p>${promptData.prompt}</p>`
+    const promptHTML = `<p>${prompt.text}</p>`
     promptElContent.insertAdjacentHTML("afterbegin", promptHTML);
 }
 
