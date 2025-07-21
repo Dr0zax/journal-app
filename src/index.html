@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <title>Journal-App</title>
+  </head>
+  <body>
+    <header>
+      <h1>Journal App</h1>
+      <div>
+        <h1 id="todays-date">[DATE]</h1>
+        <button id="settings-bttn">
+          <img src="/images/settings.svg" alt="settings" />
+        </button>
+      </div>
+      <div id="settings-container" class="hide">
+        <div class="settings-bar">
+          <div class="settings-bar-header">
+            <button id="settings-bttn-close">
+              <img src="/images/close.svg" alt="close button" />
+            </button>
+            <h1>Settings</h1>
+          </div>
+          <div class="settings-bar-content">
+              <label for="Login">
+                Account
+                <a href="./login.html">Login</a>
+              </label>
+              <label>
+                Dark Mode
+                <input type="checkbox" id="darkModeToggle">
+              </label>
+          </div>
+        </div>
+      </div>
+    </header>
+    <main>
+      <section id="dashboard">
+        <div class="module" id="entry-creation-field">
+          <h2>New Entry</h2>
+          <div class="module-content">
+            <a id="create-entry-bttn" href="journal/journal.html">START</a>
+          </div>
+        </div>
+        <div class="module" id="daily-quote">
+          <h2>Daily Quote</h2>
+          <div class="module-content"></div>
+        </div>
+        <div class="module" id="daily-prompt">
+          <h2>Todays Prompt</h2>
+          <div class="module-content"></div>
+        </div>
+      </section>
+      <section id="entries">
+        <h2>Entries</h2>
+        <div class="entries-container">
+          <div class="module more-entries">
+            <h2>More Entries</h2>
+            <div class="module-content">
+              <a id="more-entries-bttn" href="entries/entries.html"><img src="/images/more-entries.svg" alt=""></a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <p>&copy;<span id="copy-year">2025</span> Andrew Jeppesen</p>
+    </footer>
+    <script type="module" src="./js/main.js"></script>
+  </body>
+</html>

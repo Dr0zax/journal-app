@@ -1,0 +1,368 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+
+:root {
+  --primary-color: #415A77;
+  --secondary-color: #778DA9;
+  --color-light: #e6e6e6;
+  --color-dark: #0D1B2A;
+
+  --header-font: "Rubik", georgia, sans-serif;
+  --body-font: "Inter", helvetica, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--header-font);
+  font-size: 1.25rem;
+}
+
+p, a, button, select, label, input{
+  font-family: var(--body-font);
+  font-size: 1rem;
+  text-decoration: none;
+  margin: 0;
+}
+
+input {
+  border: 1px solid var(--color-dark);
+  border-radius: 5px;
+}
+
+button {
+  border: none;
+  border-radius: .5rem;
+  background-color: var(--primary-color);
+  color: var(--color-light);
+  padding: .5rem;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: .5rem 2rem;
+  background-color: var(--primary-color);
+  color: var(--color-light);
+  gap: .5rem;
+}
+
+header div {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+header div h1 {
+  text-align: center;
+}
+
+header button {
+  border: none;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+}
+
+header button img {
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  transition: transform 250ms ease;
+}
+
+#settings-bttn img:hover {
+  transform: rotate(60deg)
+}
+
+header a {
+  text-decoration: none;
+  color: var(--color-light);
+  font-size: 2rem;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+}
+
+.arrow-left {
+  border: solid var(--color-light);
+  border-width: 0 2px 2px 0;
+  display: inline-block;
+  padding: 5px;
+  transform: rotate(135deg);
+  -webkit-transform: rotate(135deg);
+  
+}
+
+main {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 1em;
+}
+
+footer {
+  padding: .5rem;
+}
+
+.module {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: .5rem;
+  overflow: hidden;
+  background-color: var(--color-light);
+}
+
+.module h2 {
+  margin: 0;
+  padding: .5rem;
+  background-color: var(--primary-color);
+  color: var(--color-light);
+  width: 100%;
+  text-align: center;
+}
+
+.entry-link {
+  width: 100%;
+}
+
+.module-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  padding: 1rem;
+  overflow: auto;
+}
+
+/* DASHBOARD CSS */
+
+#dashboard {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  gap: 2.5rem;
+  height: 250px;
+}
+
+#dashboard .module {
+  width: 100%;
+  height: 100%;
+}
+
+#entry-creation-field .module-content {
+  justify-content: space-between;
+}
+
+.module-content select {
+  text-align: center;
+  border: 1px solid black;
+  border-radius: .5rem;
+  background-color: var(--color-light);
+  padding: .5rem;
+  width: 100%;
+}
+
+.module-content a {
+  width: 100%;
+  text-align: center;
+  border-radius: .5rem;
+  background-color: var(--primary-color);
+  color: var(--color-light);
+  padding: .5rem;
+  transition: background-color 250ms ease;
+}
+
+.module-content a:hover {
+  background-color: var(--secondary-color);
+  color: var(--color-dark);
+}
+
+/* ENTRIES CSS */
+
+#entries {
+  display: flex;
+  flex-direction: column;
+}
+
+.entries-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  justify-content: space-between;
+  gap: 2.5rem;
+}
+
+#entries .module {
+  width: 100%;
+  height: 250px;
+}
+
+.more-entries .module-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#more-entries-bttn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100px;
+  height: 100px;
+  background-color: unset;
+  border: 6px solid var(--primary-color);
+  border-radius: 50%;
+}
+
+#more-entries-bttn img {
+  width: 100%;
+  height: 100%;
+}
+
+#more-entries-bttn:hover {
+  background-color: var(--secondary-color);
+}
+
+/* JOURNAL EDITOR CSS */
+
+.toolbar {
+  margin-bottom: 10px;
+}
+
+.editor {
+  width: 100%;
+  height: 600px;
+  border: 1px solid var(--color-dark);
+  padding: 10px;
+  overflow-y: auto;
+  font-family: var(--body-font);
+  border-radius: 10px;
+}
+
+.hide {
+  display: none;
+}
+
+#settings-container {
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  background-color: #2525252f;
+}
+
+.settings-bar {
+  position: absolute;
+  right: 0;
+  max-width: 0;
+  height: 100%;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 0 10px var(--color-dark);
+  z-index: 1;
+}
+
+.settings-bar-header {
+  background-color: var(--primary-color);
+  width: 100%;
+  padding: .5rem ;
+  display: grid;
+  grid-template-columns: 50px 1fr 50px;
+}
+
+.settings-bar-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.settings-bar-content label {
+  color: var(--color-dark);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+}
+
+.settings-bar-content input {
+  width: 200px;
+}
+
+.settings-bar-content button {
+  background-color: var(--primary-color);
+  border-radius: 10px;
+  width: 100%;
+  height: auto;
+}
+
+.settings-bar-content a {
+  color: var(--color-light);
+  background-color: var(--primary-color);
+  padding: .5rem;
+  border-radius: 10px;
+  font-size: 1rem;
+  width: 100%;
+  text-align: center;
+  display: block;
+}
+
+.show {
+  max-width: 350px;
+}
+
+.date-adjust {
+  margin-right: 150px;
+}
+
+/* Register & Login */
+
+input[type=text], input[type=password] {
+  width: 100%;
+  padding: 15px;
+  display: inline-block;
+  border: none;
+  background-color: var(--color-light);
+  margin: 5px 0 22px 0;
+}
+
+input[type=text]:focus, input[type=password]:focus {
+  outline: none;
+  background-color: #dadada;
+}
+
+@media screen and (max-width: 1000px) {
+  header div {
+    gap: .5rem;
+  }
+
+  #dashboard {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+  }
+
+  #dashboard .module {
+    height: 250px;
+  }
+
+  .entries-container {
+    display: flex;
+    flex-direction: column;
+  }
+}

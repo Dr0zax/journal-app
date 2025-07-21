@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Journal-App | Entries</title>
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+  <body>
+    <header>
+      <a href="../index.html"><i class="arrow-left"></i>Dashboard</a>
+      <div>
+        <h1 id="todays-date">[DATE]</h1>
+        <button id="settings-bttn">
+          <img src="/images/settings.svg" alt="settings" />
+        </button>
+      </div>
+      <div id="settings-container" class="hide">
+        <div class="settings-bar">
+          <div class="settings-bar-header">
+            <button id="settings-bttn-close">
+              <img src="/images/close.svg" alt="close button" />
+            </button>
+            <h1>Settings</h1>
+          </div>
+          <div class="settings-bar-content">
+              <label for="Login">
+                Account
+                <a href="./login.html">Login</a>
+              </label>
+              <label>
+                Dark Mode
+                <input type="checkbox" id="darkModeToggle">
+              </label>
+          </div>
+        </div>
+      </div>
+    </header>
+    <main>
+        <section id="entries">
+            <div class="entries-container"></div>
+        </section>
+    </main>
+    <footer>
+      <p>&copy;<span id="copy-year"></span> Andrew Jeppesen</p>
+    </footer>
+    <script src="../js/entries.js" type="module"></script>
+  </body>
+</html>
