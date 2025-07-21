@@ -12,7 +12,7 @@ loginForm.addEventListener("submit", async (e) => {
     login(username, password);
     
     loginForm.reset();
-    window.location.href = "/index.html";
+    // window.location.href = "/index.html";
 })
 
 setHeaderFooter()
